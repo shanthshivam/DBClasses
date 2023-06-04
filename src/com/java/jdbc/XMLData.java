@@ -109,6 +109,8 @@ public class XMLData {
 			 // Create a statement
             Statement stmt = conn.createStatement();
             
+            
+            
             // Execute a query
             String sql = "select a.token, a.attr, a.field_Type,a.group_token,c.token as \"query_token\", a.is_must as \"conditions_is_must\",d.token as \"query_group_token\",d.title,d.is_must,a.operator,a.props  from zeronsec.conditions a, zeronsec.alerts  b, zeronsec.queries c, zeronsec.query_groups d where b.token = c.alert_token and c.token = d.query_token and d.token = a.group_token;";
             ResultSet rs = stmt.executeQuery(sql);
